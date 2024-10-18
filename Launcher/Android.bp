@@ -1,0 +1,33 @@
+package {
+    default_applicable_licenses: ["Android-Apache-2.0"],
+}
+
+android_app {
+    name: "Launcher",
+    vendor: false,
+    privileged: true,
+    certificate: "platform",
+    overrides: [
+        "Launcher3",
+        "Launcher3QuickStep",
+    ],
+    sdk_version: "current",
+    manifest: "AndroidManifest.xml",
+    srcs: [
+        "src/**/*.kt",
+        "src/**/*.java",
+    ],
+    resource_dirs: [
+        "res", 
+    ],
+    static_libs: [
+        "androidx.core_core-ktx",
+        "androidx.appcompat_appcompat",
+        "com.google.android.material_material",
+        "androidx.activity_activity",
+        "weather-forecast-library",
+    ],
+    optimize: {
+        proguard_flags_files: ["proguard-rules.pro"],
+    },
+}
